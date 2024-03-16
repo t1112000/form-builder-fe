@@ -19,7 +19,7 @@ const GoogleButton: React.FC<GoogleButtonProps> = ({ text }) => {
         setLoading(true);
 
         setTimeout(() => {
-          console.log({ data });
+          console.log({ data, router });
           setLoading(false);
         }, 2000);
 
