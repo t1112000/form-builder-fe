@@ -1,6 +1,22 @@
+"use client";
 import classNames from "classnames";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+
+import { LocalKeys } from "@/services/storage";
+import AppScreens from "@/types/router.type";
 
 export default function Home() {
+  const router = useRouter();
+
+  useEffect(() => {
+    const token = localStorage.getItem(LocalKeys.AUTH_TOKEN);
+
+    if (!token) {
+      router.push(AppScreens.SIGN_IN);
+    }
+  }, [router]);
+
   return (
     <main
       className={classNames(

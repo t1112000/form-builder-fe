@@ -1,7 +1,10 @@
-import ComponentWrapper from "@/layouts/ComponentWrapper";
-import "@/styles/globals.css";
 import type { Metadata } from "next";
 import { Roboto_Mono } from "next/font/google";
+
+import { Toaster } from "@/components/ui/toaster";
+import ComponentWrapper from "@/layouts/ComponentWrapper";
+
+import "@/styles/globals.css";
 
 const robotoMono = Roboto_Mono({ subsets: ["latin"] });
 
@@ -19,6 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={robotoMono.className}>
         <ComponentWrapper>{children}</ComponentWrapper>
+        <Toaster />
       </body>
     </html>
   );

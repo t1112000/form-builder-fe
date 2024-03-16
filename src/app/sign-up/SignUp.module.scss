@@ -1,0 +1,57 @@
+.sign_up {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
+    url("../../../public/images/sign-in-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  width: 100vw;
+  height: 100dvh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .form {
+    background-color: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(0.25rem);
+    padding: 1.5rem;
+    max-width: 500px;
+    width: 100%;
+    border-radius: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+
+    .title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      text-align: center;
+      color: white;
+    }
+
+    .forgot_password {
+      font-size: 0.75rem;
+      color: white;
+      text-align: right;
+    }
+
+    .or {
+      font-size: 0.875rem;
+      font-weight: medium;
+      text-align: center;
+      color: white;
+    }
+
+    .dont_have_an_account {
+      color: var(--grey-300);
+      font-size: 0.75rem;
+      text-align: center;
+
+      .link {
+        font-weight: 600;
+        color: white;
+      }
+    }
+  }
+}
