@@ -91,3 +91,21 @@
   --grey-900: #17181a;
   --grey-950: #1b1b1c;
 }
+
+@supports (font-variation-settings: normal) {
+  :root {
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+  }
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-weight: 400;
+  letter-spacing: 0px;
+  font-size: 1rem;
+}
