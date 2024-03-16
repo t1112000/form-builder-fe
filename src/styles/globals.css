@@ -74,3 +74,20 @@
     @apply bg-background text-foreground;
   }
 }
+
+:root {
+  --grey: #ccd1dd;
+  --grey-50: #f2f3f5;
+  --grey-100: #d6dae1;
+  --grey-150: #f3f4fb;
+  --grey-200: #c4c9d2;
+  --grey-300: #a3a9b3;
+  --grey-400: #7d828b;
+  --grey-500: #5c6169;
+  --grey-600: #36393f;
+  --grey-700: #2c2e33;
+  --grey-800: #202225;
+  --grey-850: #475064;
+  --grey-900: #17181a;
+  --grey-950: #1b1b1c;
+}
