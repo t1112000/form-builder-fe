@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
@@ -6,19 +7,23 @@ export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   errorMessage?: string;
+  containerClassName?: string;
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type, label, errorMessage, ...props }, ref) => {
+  (
+    { className, type, label, errorMessage, containerClassName, ...props },
+    ref
+  ) => {
     const [showPassword, setShowPassword] = React.useState(false);
 
     return (
-      <div>
+      <div className={classNames("input", containerClassName)}>
         {label && (
-          <label className="text-sm font-medium text-white">{label}</label>
+          <label className="text-sm font-medium text-white mb-2">{label}</label>
         )}
 
-        <div className="relative mt-2 mb-1">
+        <div className="relative">
           <input
             type={showPassword ? "text" : type}
             className={cn(
@@ -47,7 +52,9 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         </div>
 
         {errorMessage && (
-          <p className="text-xs text-red-500 font-medium">{errorMessage}</p>
+          <p className="text-xs text-red-500 font-medium mt-1">
+            {errorMessage}
+          </p>
         )}
       </div>
     );

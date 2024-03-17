@@ -1,11 +1,5 @@
-.sign_up {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
-    url("../../../public/images/sign-in-bg.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  width: 100vw;
-  height: 100dvh;
+.sign_in {
+  height: 100%;
 
   display: flex;
   align-items: center;

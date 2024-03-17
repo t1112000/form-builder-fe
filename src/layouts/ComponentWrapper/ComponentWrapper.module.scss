@@ -1,0 +1,36 @@
+@import "@/styles/responsive.scss";
+
+.component_wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
+  height: 100dvh;
+  padding: 0 1rem;
+
+  .wrapper {
+    position: relative;
+    height: 100%;
+
+    &.auth {
+      position: absolute;
+      height: unset;
+      inset: 1rem;
+      border-radius: 1rem;
+      background-color: rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(2rem);
+      overflow: hidden;
+
+      display: flex;
+      flex-direction: column;
+
+      @include screen(lg) {
+        inset: 2rem;
+      }
+    }
+
+    .children {
+      height: 100%;
+      overflow: hidden auto;
+    }
+  }
+}

@@ -1,0 +1,43 @@
+@import "@/styles/responsive.scss";
+
+.form_item {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.25s ease-in-out;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+
+    .button {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    .name {
+      font-size: 1rem;
+      color: black;
+    }
+
+    .description {
+      font-size: 0.875rem;
+      color: var(--grey-500);
+    }
+  }
+
+  .button {
+    opacity: 0;
+    pointer-events: none;
+    padding: 0.5rem;
+    transition: all 0.25s;
+  }
+}

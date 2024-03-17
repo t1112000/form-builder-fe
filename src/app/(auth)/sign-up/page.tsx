@@ -1,18 +1,24 @@
 "use client";
 import { useFormik } from "formik";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React from "react";
+import { useSetRecoilState } from "recoil";
 
 import GoogleButton from "@/components/GoogleButton";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { toast } from "@/components/ui/use-toast";
+import { AuthAtom, SignInMethods } from "@/services/auth";
+import { LocalKeys } from "@/services/storage";
 import AppScreens from "@/types/router.type";
 import { signUpValidate } from "@/utils/validate";
 
 import styles from "./SignUp.module.scss";
 
 const SignUp: React.FC = () => {
+  const setCurrentUser = useSetRecoilState(AuthAtom.currentUser);
+  const router = useRouter();
+
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -21,11 +27,15 @@ const SignUp: React.FC = () => {
     },
     validate: signUpValidate,
     onSubmit: (values) => {
-      console.log(values);
       setTimeout(() => {
-        toast({
-          description: "Sign up successfully",
+        setCurrentUser({
+          id: "1",
+          name: "John Doe",
+          email: values.email,
+          type: SignInMethods.LOCAL,
         });
+        localStorage.setItem(LocalKeys.AUTH_TOKEN, "token");
+        router.push(AppScreens.HOME);
         formik.setSubmitting(false);
       }, 2000);
     },
