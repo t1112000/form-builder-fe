@@ -2,8 +2,12 @@ import { TokenResponse, useGoogleLogin } from "@react-oauth/google";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import { useSetRecoilState } from "recoil";
 
 import { Button } from "@/components/ui/button";
+import { AuthAtom, SignInMethods } from "@/services/auth";
+import { LocalKeys } from "@/services/storage";
+import AppScreens from "@/types/router.type";
 
 interface GoogleButtonProps {
   text: string;
@@ -12,6 +16,7 @@ interface GoogleButtonProps {
 const GoogleButton: React.FC<GoogleButtonProps> = ({ text }) => {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+  const setCurrentUser = useSetRecoilState(AuthAtom.currentUser);
 
   const loginGoogle = useGoogleLogin({
     onSuccess: async (data: TokenResponse) => {
@@ -20,6 +25,14 @@ const GoogleButton: React.FC<GoogleButtonProps> = ({ text }) => {
 
         setTimeout(() => {
           console.log({ data, router });
+          setCurrentUser({
+            id: "1",
+            name: "John Doe",
+            email: "tuyen@gmail.com",
+            type: SignInMethods.GOOGLE,
+          });
+          localStorage.setItem(LocalKeys.AUTH_TOKEN, data.access_token);
+          router.push(AppScreens.HOME);
           setLoading(false);
         }, 2000);
 
@@ -44,6 +57,7 @@ const GoogleButton: React.FC<GoogleButtonProps> = ({ text }) => {
 
   return (
     <Button
+      type="button"
       variant="outline"
       onClick={() => loginGoogle()}
       loading={loading}

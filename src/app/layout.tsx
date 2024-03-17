@@ -37,6 +37,22 @@ export const metadata: Metadata = {
       },
     ],
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  referrer: "origin-when-cross-origin",
+  keywords: ["form builder", "form", "builder", "form builder fe"],
+  authors: [
+    { name: "Form Builder", url: "https://form-builder-fe.vercel.app" },
+  ],
 };
 
 export default function RootLayout({

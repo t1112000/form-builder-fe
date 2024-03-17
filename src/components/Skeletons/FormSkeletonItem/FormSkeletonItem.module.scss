@@ -1,0 +1,41 @@
+@import "@/styles/responsive.scss";
+
+.form_skeleton_item {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  .avatar {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 0.5rem;
+    background-color: var(--grey-200);
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    row-gap: 0.5rem;
+    flex: 1;
+
+    .name {
+      font-size: 1rem;
+      height: 0.5rem;
+      max-width: 50%;
+      width: 100%;
+      background-color: var(--grey-200);
+    }
+
+    .description {
+      font-size: 0.875rem;
+      height: 0.5rem;
+      max-width: 35%;
+      width: 100%;
+      background-color: var(--grey-200);
+    }
+  }
+}
